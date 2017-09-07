@@ -1,0 +1,113 @@
+﻿<Window x:Class="WpfMailSender.ClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMailSender"
+        mc:Ignorable="d"
+        Title="Automatic Mail Sender" Width="914.916" Icon="img/Mail.ico" Height="414">
+    <DockPanel>
+        <Menu VerticalContentAlignment="Center" DockPanel.Dock="Top" Height="24">
+            <MenuItem x:Name="miFile" Header="File" Width="100"/>
+            <MenuItem x:Name="miClose" Header="Close" Width="100" Click="imClose_Click"/>
+        </Menu>
+        <TabControl DockPanel.Dock="Top">
+            <TabItem x:Name="tiFormation" Header="Formation of the distribution group" IsSelected="True">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <Grid Height="56" VerticalAlignment="Top" IsHitTestVisible="True">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="500*"/>
+                                <ColumnDefinition Width="388*"/>
+                            </Grid.ColumnDefinitions>
+                            <ToolBar x:Name="tbSender" Height="28" VerticalAlignment="Top" MinWidth="500" MinHeight="28" HorizontalAlignment="Left" Width="500">
+                                <Label x:Name="lSender" Content="Choose sender" VerticalAlignment="Top" Height="25" Width="130"/>
+                                <ComboBox x:Name="cbSenderSelect" Height="25" Margin="0" VerticalAlignment="Top" Width="270" SelectedIndex="1" ToolTip="Choose sender's e-mail"/>
+                                <Button x:Name="btnAddSender" HorizontalAlignment="Stretch" Width="25" ToolTip="Добавить" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                    <Image Source="img/add.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center"   />
+                                </Button>
+                                <Button x:Name="btnEditSender" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="25" Height="25" ToolTip="Редактировать" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                    <Image Source="img/edit.png" Stretch="Fill" VerticalAlignment="Top"/>
+                                </Button>
+                                <Button x:Name="btnDeleteSender" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,0,0" Width="25" Height="25" ToolTip="Удалить" Margin="0,-2,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                    <Image Source="img/delete1.ico" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Button>
+                            </ToolBar>
+                            <ToolBar Margin="1,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="28" MinWidth="499" MinHeight="28" Width="499">
+                                <Label x:Name="lSmtp" Content="Choose smtp-server" VerticalAlignment="Top" Height="25" Width="130"/>
+                                <ComboBox x:Name="cbSmtpSelect" Height="25" Margin="0" VerticalAlignment="Top" Width="270" SelectedIndex="1" ToolTip="Choose sender's e-mail"/>
+                                <Button x:Name="btnAddSmtp" Width="25" ToolTip="Добавить" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                    <Image Source="img/add.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Add smtp"/>
+                                </Button>
+                                <Button x:Name="btnEditSmtp" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="25" Height="25" ToolTip="Редактировать" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                    <Image Source="img/edit.png" Stretch="Fill" VerticalAlignment="Top" ToolTip="Edit smtp"/>
+                                </Button>
+                                <Button x:Name="btnDeleteSmtp" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,0,0" Width="25" Height="25" ToolTip="Удалить" Margin="0,-2,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                    <Image Source="img/delete1.ico" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Delete smtp"/>
+                                </Button>
+                            </ToolBar>
+                            <ToolBar Height="28" VerticalAlignment="Top" MinWidth="353" MinHeight="28" Grid.Column="1" HorizontalAlignment="Left" Width="353">
+                                <Label Content="Go to scheduler" Width="293"></Label>
+                                <Button x:Name="btnToScheduler" Height="25" VerticalAlignment="Top" Width="25" Click="btnToSchedeuler_Click">
+                                    <Image Source="img/clock.png" ToolTip="Go to scheduler tab"/>
+                                </Button>
+                            </ToolBar>
+                            <ToolBar Height="28" MinWidth="353" MinHeight="28" VerticalAlignment="Bottom" Grid.Column="1" HorizontalAlignment="Left" Width="353">
+                                <Label Content="List of addresses" Height="23" VerticalAlignment="Top" Width="243"/>
+                                <Button x:Name="btnAddAddress" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,0,0" Width="25" Height="25" ToolTip="Удалить" Margin="0,-2,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                    <Image Source="img/add.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Add address"/>
+                                </Button>
+                                <Button x:Name="btnEditAddress" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,0,0" Width="25" Height="25" ToolTip="Удалить" Margin="0,-2,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                    <Image Source="img/edit.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Edit address"/>
+                                </Button>
+                                <Button x:Name="btnDeleteAddress" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,0,0" Width="25" Height="25" ToolTip="Удалить" Margin="0,-2,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                    <Image Source="img/delete1.ico" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Delete address"/>
+                                </Button>
+                            </ToolBar>
+                        </Grid>
+                        <DataGrid x:Name="dgEmails"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tiScheduler" Header="Scheduler">
+                <Grid Background="#FFE5E5E5">
+                    <Calendar x:Name="cldSchedulDateTimes" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionMode="MultipleRange"/>
+                    <DatePicker x:Name="tbTimePicker" HorizontalAlignment="Left" Margin="0,168,0,0" VerticalAlignment="Top" Width="179"/>
+                    <Button x:Name="btnSendOnDate" HorizontalAlignment="Left" Margin="0,192,0,0" VerticalAlignment="Top" Width="179" Click="btnSendOnDate_Click">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="img/clock.png" Width="16" Height="16" />
+                                <TextBlock Margin="3,0,0,0" Text="Send on date" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="btnSendAtOnce" HorizontalAlignment="Left" Margin="0,212,0,0" VerticalAlignment="Top" Width="179" Click="btnSendAtOnce_Click">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="img/mail-icon.png" Width="16" Height="16" />
+                                <TextBlock Margin="3,0,0,0" Text="Send at once" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="The editor of letters">
+                <Grid Background="#FFE5E5E5">
+                    <RichTextBox>
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Statistics">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>
