@@ -113,7 +113,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AdditionalClasses\VariableClass.cs" />
+    <Compile Include="ComboBoxControll.xaml.cs">
+      <DependentUpon>ComboBoxControll.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Scheduler.cs" />
+    <Compile Include="UserControllers\TabSwitcherControl.xaml.cs">
+      <DependentUpon>TabSwitcherControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="ClientWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,6 +133,14 @@
       <DependentUpon>ClientWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ComboBoxControll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControllers\TabSwitcherControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Theme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -205,6 +219,10 @@
       <Project>{ecb0d8b8-2397-44dd-a060-d66b6534b539}</Project>
       <Name>WPFData</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\arrow_left.png" />
+    <Resource Include="img\arrow_right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

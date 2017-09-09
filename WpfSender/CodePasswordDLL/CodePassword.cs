@@ -8,6 +8,11 @@ namespace CodePasswordDLL
 {
     public class CodePassword
     {
+        /// <summary>
+        /// На вход подаем зашифрованный пароль, на выходе получаем пароль действительный
+        /// </summary>
+        /// <param name="p_sPassw"></param>
+        /// <returns></returns>
         public static string getPassword(string p_sPassw)
         {
             string password = "";

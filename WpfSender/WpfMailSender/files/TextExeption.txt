@@ -1,0 +1,63 @@
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 48
+
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 48
+
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 48
+
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 49
+
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 49
+
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 49
+
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 50
+
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 50
+
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 50
+

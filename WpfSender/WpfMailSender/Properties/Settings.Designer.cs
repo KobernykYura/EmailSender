@@ -25,12 +25,10 @@ namespace WpfMailSender.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DataBase\\Mail" +
-            "sAndSenders.mdf;Integrated Security=True")]
-        public string MailsAndSendersConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("@\"../../files/TextBody.txt\"")]
+        public string path {
             get {
-                return ((string)(this["MailsAndSendersConnectionString"]));
+                return ((string)(this["path"]));
             }
         }
     }

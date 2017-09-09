@@ -3,7 +3,9 @@ using System.Linq;
 using System.Net.Mail;
 using System.Windows;
 using System.Net;
+using System.IO;
 using WPFData;
+using CodePasswordDLL;
 
 namespace EmailSenderServiceDLL
 {
@@ -12,16 +14,18 @@ namespace EmailSenderServiceDLL
         #region vars
         private string strLogin; // email c которого будет рассылаться почта
         private string strPassword; // пароль к email с которого будет рассылаться почта
-        private string strSmtp = "smtp.mail.ru"; // smtp - server
-        private int iSmtpPort = 25; // порт для smtp-server
-        private string strBody; // текст письма для отправки
-        private string strSubject; // тема письма для отправки
+        private string strSmtp; // smtp - server
+        private int iSmtpPort; // порт для smtp-server
+        private string strBody= File.ReadAllText(@"../../files/TextBody.txt"); // текст письма для отправки
+        private string strSubject="Hello from WPF."; // тема письма для отправки
         #endregion
 
-        public EmailSendService(string sLogin, string sPassword)
+        public EmailSendService(string sLogin, string sPassword, string smtp, int port)
         {
             this.strLogin = sLogin;
             this.strPassword = sPassword;
+            this.strSmtp = smtp;
+            this.iSmtpPort = port;
         }
         /// <summary>
         /// Method for sending an email to a specific recipient.
@@ -34,20 +38,24 @@ namespace EmailSenderServiceDLL
             using (MailMessage mm = new MailMessage(strLogin, mail))
             {
                 mm.Subject = strSubject;
-                mm.Body = "Hello world!";
+                mm.Body = strBody;
                 mm.IsBodyHtml = false;
-                SmtpClient sc = new SmtpClient(strSmtp, iSmtpPort);
-                sc.EnableSsl = true;
-                sc.DeliveryMethod = SmtpDeliveryMethod.Network;
-                sc.UseDefaultCredentials = false;
-                sc.Credentials = new NetworkCredential(strLogin, strPassword);
-                try
+                using (SmtpClient sc = new SmtpClient(strSmtp, iSmtpPort))
                 {
-                    sc.Send(mm);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Невозможно отправить письмо " + ex.ToString());
+                    sc.EnableSsl = true;
+                    sc.DeliveryFormat = SmtpDeliveryFormat.International;
+                    sc.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    sc.UseDefaultCredentials = false;
+                    sc.Credentials = new NetworkCredential(strLogin, CodePassword.getPassword(strPassword));
+                    try
+                    {
+                        sc.Send(mm);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Невозможно отправить письмо " + ex.ToString());
+                        File.AppendAllText(@"../../files/TextException.txt",DateTime.Now.ToLongDateString() + "\r\n" + ex.ToString() + "\r\n\r\n");
+                    }
                 }
 
             }

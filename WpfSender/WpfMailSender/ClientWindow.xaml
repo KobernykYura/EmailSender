@@ -3,15 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:WpfMailSender"
         mc:Ignorable="d"
-        Title="Automatic Mail Sender" Width="914.916" Icon="img/Mail.ico" Height="414">
+        Title="Automatic Mail Sender" Width="900" Icon="img/Mail.ico" Height="420">
     <DockPanel>
         <Menu VerticalContentAlignment="Center" DockPanel.Dock="Top" Height="24">
             <MenuItem x:Name="miFile" Header="File" Width="100"/>
             <MenuItem x:Name="miClose" Header="Close" Width="100" Click="imClose_Click"/>
         </Menu>
-        <TabControl DockPanel.Dock="Top">
+        <TabControl x:Name="tabControl" DockPanel.Dock="Top">
             <TabItem x:Name="tiFormation" Header="Formation of the distribution group" IsSelected="True">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
@@ -49,13 +50,10 @@
                                     <Image Source="img/delete1.ico" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Delete smtp"/>
                                 </Button>
                             </ToolBar>
-                            <ToolBar Height="28" VerticalAlignment="Top" MinWidth="353" MinHeight="28" Grid.Column="1" HorizontalAlignment="Left" Width="353">
-                                <Label Content="Go to scheduler" Width="293"></Label>
-                                <Button x:Name="btnToScheduler" Height="25" VerticalAlignment="Top" Width="25" Click="btnToSchedeuler_Click">
-                                    <Image Source="img/clock.png" ToolTip="Go to scheduler tab"/>
-                                </Button>
-                            </ToolBar>
-                            <ToolBar Height="28" MinWidth="353" MinHeight="28" VerticalAlignment="Bottom" Grid.Column="1" HorizontalAlignment="Left" Width="353">
+                            <Border Height="28" VerticalAlignment="Top" MinWidth="353" MinHeight="28" Grid.Column="1" Width="350">
+                                <local:TabSwitcherControl x:Name="tscTabSwitcher" VerticalAlignment="Top" IsHideBtnPrevious="True" btnNextClick="TscTabSwitcher_btnNextClick" btnPreviousClick="TscTabSwitcher_btnPreviousClick"/>
+                            </Border>
+                            <ToolBar Height="28" MinWidth="353" MinHeight="28" VerticalAlignment="Bottom" Grid.Column="1" Width="353">
                                 <Label Content="List of addresses" Height="23" VerticalAlignment="Top" Width="243"/>
                                 <Button x:Name="btnAddAddress" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,0,0" Width="25" Height="25" ToolTip="Удалить" Margin="0,-2,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                                     <Image Source="img/add.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Add address"/>
@@ -75,7 +73,7 @@
             <TabItem x:Name="tiScheduler" Header="Scheduler">
                 <Grid Background="#FFE5E5E5">
                     <Calendar x:Name="cldSchedulDateTimes" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionMode="MultipleRange"/>
-                    <DatePicker x:Name="tbTimePicker" HorizontalAlignment="Left" Margin="0,168,0,0" VerticalAlignment="Top" Width="179"/>
+                    <xctk:TimePicker x:Name="tbTimePicker" HorizontalAlignment="Left" Margin="0,168,0,0" VerticalAlignment="Top" Width="179"/>
                     <Button x:Name="btnSendOnDate" HorizontalAlignment="Left" Margin="0,192,0,0" VerticalAlignment="Top" Width="179" Click="btnSendOnDate_Click">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
@@ -92,21 +90,24 @@
                             </StackPanel>
                         </Button.Content>
                     </Button>
+                    <local:TabSwitcherControl x:Name="tscTabSwitcher3" Height="29" Width="229" VerticalAlignment="Top" HorizontalAlignment="Right" btnNextClick="TscTabSwitcher_btnNextClick" btnPreviousClick="TscTabSwitcher_btnPreviousClick"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="The editor of letters">
+            <TabItem x:Name="tabMailBody" Header="The editor of letters">
                 <Grid Background="#FFE5E5E5">
-                    <RichTextBox>
+                    <RichTextBox x:Name="rtbMailBody" Margin="0,34,0,50">
                         <FlowDocument>
-                            <Paragraph>
-                                <Run Text="RichTextBox"/>
-                            </Paragraph>
+
                         </FlowDocument>
                     </RichTextBox>
+                    <Button x:Name="btnSaveMailText" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="50" FontSize="18" Click="btnSaveMailText_Click">Save</Button>
+                    <local:TabSwitcherControl x:Name="tscTabSwitcher2" HorizontalAlignment="Right" Height="Auto" VerticalAlignment="Top" Width="Auto" btnNextClick="TscTabSwitcher_btnNextClick" btnPreviousClick="TscTabSwitcher_btnPreviousClick"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Statistics">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <local:TabSwitcherControl x:Name="tscTabSwitcher1" HorizontalAlignment="Right" Height="Auto" Margin="0,0,2,0" VerticalAlignment="Top" Width="Auto" IsHideBtnNext="True" btnPreviousClick="TscTabSwitcher_btnPreviousClick"/>
+                </Grid>
             </TabItem>
         </TabControl>
     </DockPanel>

@@ -55,10 +55,17 @@
     <None Include="EmailsenderServiceDLL.snk" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CodePasswordDLL\CodePasswordDLL.csproj">
+      <Project>{4df6f0d9-c5d0-4241-895c-b1b8b75f36e2}</Project>
+      <Name>CodePasswordDLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WPFData\WPFData.csproj">
       <Project>{ecb0d8b8-2397-44dd-a060-d66b6534b539}</Project>
       <Name>WPFData</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="files\TextBody.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
