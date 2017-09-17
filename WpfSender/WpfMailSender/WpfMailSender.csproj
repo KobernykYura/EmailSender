@@ -70,6 +70,10 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Scaffolding.EntityFramework.12.0, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -112,14 +116,58 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddDeleteEditWindows\AddAddressWindow.xaml.cs">
+      <DependentUpon>AddAddressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddDeleteEditWindows\AddSenderWindow.xaml.cs">
+      <DependentUpon>AddSenderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddDeleteEditWindows\AddSMTPWindow.xaml.cs">
+      <DependentUpon>AddSMTPWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddDeleteEditWindows\EditSenderWindow.xaml.cs">
+      <DependentUpon>EditSenderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddDeleteEditWindows\EditSMTPWindow.xaml.cs">
+      <DependentUpon>EditSMTPWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdditionalClasses\VariableClass.cs" />
-    <Compile Include="ComboBoxControll.xaml.cs">
-      <DependentUpon>ComboBoxControll.xaml</DependentUpon>
+    <Compile Include="SchedulerListView\ListSchedulerView.xaml.cs">
+      <DependentUpon>ListSchedulerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SchedulerListView\UserListControl.xaml.cs">
+      <DependentUpon>UserListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextWindow.xaml.cs">
+      <DependentUpon>TextWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControllers\ComboBoxControl.xaml.cs">
+      <DependentUpon>ComboBoxControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Scheduler.cs" />
     <Compile Include="UserControllers\TabSwitcherControl.xaml.cs">
       <DependentUpon>TabSwitcherControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddDeleteEditWindows\AddAddressWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddDeleteEditWindows\AddSenderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddDeleteEditWindows\AddSMTPWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddDeleteEditWindows\EditSenderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddDeleteEditWindows\EditSMTPWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ClientWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -133,7 +181,19 @@
       <DependentUpon>ClientWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ComboBoxControll.xaml">
+    <Page Include="SchedulerListView\ListSchedulerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SchedulerListView\UserListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TextWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControllers\ComboBoxControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -211,19 +271,24 @@
       <Project>{4df6f0d9-c5d0-4241-895c-b1b8b75f36e2}</Project>
       <Name>CodePasswordDLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{EE592C71-26BD-436E-99CC-3AF9C8096200}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EFData\EFData.csproj">
+      <Project>{8f31c25a-4137-4ee8-8bac-daa1347c0c5d}</Project>
+      <Name>EFData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EmailSenderServiceDLL\EmailSenderServiceDLL.csproj">
       <Project>{9971c596-9533-4eed-bf61-11796e9ff285}</Project>
       <Name>EmailSenderServiceDLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WPFData\WPFData.csproj">
-      <Project>{ecb0d8b8-2397-44dd-a060-d66b6534b539}</Project>
-      <Name>WPFData</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\arrow_left.png" />
     <Resource Include="img\arrow_right.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <SsdtUnitTestVersion>3.1</SsdtUnitTestVersion>

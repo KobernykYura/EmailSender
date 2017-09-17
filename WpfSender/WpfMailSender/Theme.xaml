@@ -28,7 +28,7 @@
     <Color x:Key="DisabledColor">#8CFFFFFF</Color>
 
     <!-- Button -->
-    <!--
+
     <Style TargetType="Button">
         <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
         <Setter Property="Background" Value="#00000000" />
@@ -196,10 +196,10 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>-->
+    </Style>
 
     <!-- Toggle Button -->
-    <!--
+    
     <Style TargetType="ToggleButton">
         <Setter Property="Background" Value="#001F3B53" />
         <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
@@ -430,7 +430,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    -->
+    
     
     <!--CheckBox-->
     <Style TargetType="{x:Type CheckBox}">

@@ -11,16 +11,16 @@
             <Button x:Name="btnPrevious"  Width="114" Click="btnPrevious_Click" >
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="img/arrow_left.png" Width="30" Height="16" />
-                        <TextBlock Margin="3,0,0,0" Text="Предыдущий" VerticalAlignment="Center" />
+                        <Image Source="../img/arrow_left.png" Width="30" Height="16" />
+                        <TextBlock Margin="3,0,0,0" Text="Previous" VerticalAlignment="Center" />
                     </StackPanel>
                 </Button.Content>
             </Button>
             <Button x:Name="btnNext" Width="115" Margin="0" Click="btnNext_Click">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="3,0,0,0" Text="Следующий" />
-                <Image Source="img/arrow_right.png" Width="30" Height="16" Margin="5,0,0,0" />
+                    <TextBlock Margin="3,0,0,0" Text="Next" />
+                <Image Source="../img/arrow_right.png" Width="30" Height="16" Margin="5,0,0,0" />
         </StackPanel>
         </Button.Content>
         </Button>

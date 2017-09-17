@@ -9,11 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodePasswordDLL", "CodePass
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSenderServiceDLL", "EmailSenderServiceDLL\EmailSenderServiceDLL.csproj", "{9971C596-9533-4EED-BF61-11796E9FF285}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFData", "WPFData\WPFData.csproj", "{ECB0D8B8-2397-44DD-A060-D66B6534B539}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodePasswordDLLTest", "CodePasswordDLLTest\CodePasswordDLLTest.csproj", "{5964A8B9-9A34-4800-84BC-87DA2688816B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodePasswordDLLTests", "CodePasswordDLLTests\CodePasswordDLLTests.csproj", "{2AC2362D-4B22-48AC-961F-E7DEE8D8744E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{EE592C71-26BD-436E-99CC-3AF9C8096200}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFData", "EFData\EFData.csproj", "{8F31C25A-4137-4EE8-8BAC-DAA1347C0C5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +35,6 @@ Global
 		{9971C596-9533-4EED-BF61-11796E9FF285}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9971C596-9533-4EED-BF61-11796E9FF285}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9971C596-9533-4EED-BF61-11796E9FF285}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ECB0D8B8-2397-44DD-A060-D66B6534B539}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ECB0D8B8-2397-44DD-A060-D66B6534B539}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ECB0D8B8-2397-44DD-A060-D66B6534B539}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ECB0D8B8-2397-44DD-A060-D66B6534B539}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5964A8B9-9A34-4800-84BC-87DA2688816B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5964A8B9-9A34-4800-84BC-87DA2688816B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5964A8B9-9A34-4800-84BC-87DA2688816B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +43,14 @@ Global
 		{2AC2362D-4B22-48AC-961F-E7DEE8D8744E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AC2362D-4B22-48AC-961F-E7DEE8D8744E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AC2362D-4B22-48AC-961F-E7DEE8D8744E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE592C71-26BD-436E-99CC-3AF9C8096200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE592C71-26BD-436E-99CC-3AF9C8096200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE592C71-26BD-436E-99CC-3AF9C8096200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE592C71-26BD-436E-99CC-3AF9C8096200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F31C25A-4137-4EE8-8BAC-DAA1347C0C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F31C25A-4137-4EE8-8BAC-DAA1347C0C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F31C25A-4137-4EE8-8BAC-DAA1347C0C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F31C25A-4137-4EE8-8BAC-DAA1347C0C5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

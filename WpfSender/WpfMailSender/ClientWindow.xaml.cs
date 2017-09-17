@@ -4,13 +4,16 @@ using System.Windows;
 using Xceed.Wpf.Toolkit;
 using WpfMailSender.AdditionalClasses;
 using System.Windows.Controls;
-using WPFData;
+using CodePasswordDLL;
 using EmailSenderServiceDLL;
 using System.IO;
 using System.Windows.Documents;
 using System.Windows.Markup;
 using System.Windows.Data;
 using Microsoft.Win32;
+using WpfMailSender.AddDeleteEditWindows;
+using EFData;
+using Common;
 
 namespace WpfMailSender
 {
@@ -25,7 +28,8 @@ namespace WpfMailSender
         string strPassword;
         string strSmtp;
         int port;
-        
+        EFBase db;
+
         public ClientWindow()
         {
             InitializeComponent();
@@ -38,10 +42,10 @@ namespace WpfMailSender
             cbSmtpSelect.DisplayMemberPath = "Key";
             cbSmtpSelect.SelectedValuePath = "Value";
 
-            //LoadMail();
+            LoadMail();
 
-            DataBaseClass db = new DataBaseClass();
-            dgEmails.ItemsSource = db.Emails;
+            db = new EFBase();
+            dgEmails.ItemsSource = db.MyEmails;
 
         }
 
@@ -63,9 +67,9 @@ namespace WpfMailSender
         {
             try
             {
-                strLogin = cbSenderSelect.Text;
+                strLogin = cbSenderSelect.ComboBoxText;
                 strPassword = cbSenderSelect.SelectedValue.ToString();
-                strSmtp = cbSmtpSelect.Text;
+                strSmtp = cbSmtpSelect.ComboBoxText;
                 port = (int)cbSmtpSelect.SelectedValue;
             }
             catch (Exception)
@@ -93,7 +97,7 @@ namespace WpfMailSender
                 return;
             }
             EmailSendService emailSender = new EmailSendService(strLogin, strPassword, strSmtp, port);
-            emailSender.SendMails((IQueryable<Emails>)dgEmails.ItemsSource);
+            emailSender.SendMails((IQueryable<Email>)dgEmails.ItemsSource);
 
         }
         /// <summary>
@@ -103,10 +107,18 @@ namespace WpfMailSender
         /// <param name="e">Event.</param>
         private void btnSendOnDate_Click(object sender, RoutedEventArgs e)
         {
-            strLogin = cbSenderSelect.Text;
-            strPassword = cbSenderSelect.SelectedValue.ToString();
-            strSmtp = cbSmtpSelect.Text;
-            port = (int)cbSmtpSelect.SelectedValue;
+            try
+            {
+                strLogin = cbSenderSelect.ComboBoxText;
+                strPassword = cbSenderSelect.SelectedValue.ToString();
+                strSmtp = cbSmtpSelect.ComboBoxText;
+                port = (int)cbSmtpSelect.SelectedValue;
+            }
+            catch (Exception)
+            {
+                System.Windows.MessageBox.Show("Incorrect sender input!\n Please, try again. ");
+                return;
+            }
 
             Scheduler sc = new Scheduler();
             TimeSpan tsSendTime = sc.GetSendTime(tbTimePicker.Text);
@@ -122,7 +134,7 @@ namespace WpfMailSender
                 return;
             }
             EmailSendService emailSender = new EmailSendService(strLogin, strPassword, strSmtp, port);
-            sc.SendEmails(dtSendDateTime, emailSender, (IQueryable<Emails>)dgEmails.ItemsSource);
+            sc.SendEmails(dtSendDateTime, emailSender, (IQueryable<Email>)dgEmails.ItemsSource);
 
         }
         /// <summary>
@@ -135,7 +147,11 @@ namespace WpfMailSender
             tiFormation.IsSelected = false;
             tiScheduler.IsSelected = true;
         }
-
+        /// <summary>
+        /// Saving mail in .txt file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveMailText_Click(object sender, RoutedEventArgs e)
         {
             doc = new TextRange(rtbMailBody.Document.ContentStart, rtbMailBody.Document.ContentEnd);
@@ -149,6 +165,8 @@ namespace WpfMailSender
 
             File.WriteAllText(@"../../files/TextBody.txt",doc.Text);
             System.Windows.MessageBox.Show("Файл сохранен");
+            tabControl.SelectedIndex = tabControl.SelectedIndex - 1;
+
             #region Saving in file
             //SaveFileDialog sfd = new SaveFileDialog();
             //sfd.Filter = "Text Files (*.txt)|*.txt|RichText Files (*.rtf)|*.rtf|XAML Files (*.xaml)|*.xaml|All files (*.*)|*.*";
@@ -180,13 +198,19 @@ namespace WpfMailSender
             TextPointer endPointer = rtb.Document.ContentEnd.GetNextInsertionPosition(LogicalDirection.Backward);
             return startPointer.CompareTo(endPointer) == 0;
         }
+        /// <summary>
+        /// Preloading text from .txt file in RichTextBox.
+        /// </summary>
         private void LoadMail()
         {
-            using (FileStream fs = File.Open(@"../../files/TextBody.txt", FileMode.Open))
+            string fileName = @"../../files/TextBody.txt";
+            TextRange range;
+
+            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
-                FlowDocument document = XamlReader.Load(fs) as FlowDocument;
-                if (document != null)
-                    rtbMailBody.Document = document;
+                range = new TextRange(rtbMailBody.Document.ContentStart, rtbMailBody.Document.ContentEnd);
+                if (range != null)
+                    range.Load(fs, DataFormats.Text);
             }
         }
 
@@ -199,6 +223,146 @@ namespace WpfMailSender
         {
             //tscTabSwitcher.btnNextClick += TscTabSwitcher_btnNextClick;
             tabControl.SelectedIndex = tabControl.SelectedIndex - 1;
+        }
+
+        /// <summary>
+        /// Add new sender.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbSenderSelect_btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbSenderSelect.ComboBoxText == "") { System.Windows.MessageBox.Show("Email address is empty."); return; }
+            AddWindow childWindow = new AddWindow();
+            childWindow.Owner = this;
+            childWindow.ShowDialog();
+
+            try
+            {
+                VariableClass.Senders.Add(cbSenderSelect.ComboBoxText, CodePassword.getCodPassword(childWindow.Password));
+            }
+            catch (Exception)
+            {
+                System.Windows.MessageBox.Show("User with such address is already exist.");
+                return;
+            }
+            cbSenderSelect.UpdateComboBox();
+        }
+        /// <summary>
+        /// Delete this sender.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbSenderSelect_btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbSenderSelect.ComboBoxText == "") { System.Windows.MessageBox.Show("The object to remove is not selected."); return; }
+
+            MessageBoxResult result =
+            System.Windows.MessageBox.Show($"Are you shure to delete {cbSenderSelect.ComboBoxText}?", $"Удаление: {cbSenderSelect.ComboBoxText}", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+
+            if (result.ToString() == "Yes") { VariableClass.Senders.Remove(cbSenderSelect.ComboBoxText); cbSenderSelect.UpdateComboBox(); }
+
+        }
+        /// <summary>
+        /// Change this sender.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbSenderSelect_btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbSenderSelect.ComboBoxText == "") { System.Windows.MessageBox.Show("The object to edit is not selected."); return; }
+            
+            EditWindow childWindow = new EditWindow();
+            childWindow.Owner = this;
+            childWindow.InitializeContent(cbSenderSelect.ComboBoxText, CodePassword.getPassword((string)cbSenderSelect.SelectedValue));
+            VariableClass.Senders.Remove(cbSenderSelect.ComboBoxText);
+
+            childWindow.ShowDialog();
+
+            VariableClass.Senders.Add(childWindow.Address, CodePassword.getCodPassword(childWindow.Password));
+            cbSenderSelect.UpdateComboBox();
+
+        }
+
+        /// <summary>
+        /// Add new smtp.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbSmtpSelect_btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbSmtpSelect.ComboBoxText == "") { System.Windows.MessageBox.Show("SMTP address is empty."); return; }
+            AddSMTPWindow childWindow = new AddSMTPWindow();
+            childWindow.Owner = this;
+            childWindow.ShowDialog();
+
+            try
+            {
+                VariableClass.Addreses.Add(cbSmtpSelect.ComboBoxText, childWindow.Port);
+            }
+            catch (Exception)
+            {
+                System.Windows.MessageBox.Show("SMTP with such address is already exist.");
+                return;
+            }
+            cbSmtpSelect.UpdateComboBox();
+        }
+        /// <summary>
+        /// Delete this smtp.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbSmtpSelect_btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbSmtpSelect.ComboBoxText == "") { System.Windows.MessageBox.Show("The object to remove is not selected."); return; }
+
+            MessageBoxResult result =
+            System.Windows.MessageBox.Show($"Are you shure to delete {cbSmtpSelect.ComboBoxText}?", $"Удаление: {cbSmtpSelect.ComboBoxText}", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+
+            if (result.ToString() == "Yes") { VariableClass.Addreses.Remove(cbSmtpSelect.ComboBoxText); cbSmtpSelect.UpdateComboBox(); }
+        }
+        /// <summary>
+        /// Change this smtp.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbSmtpSelect_btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbSmtpSelect.ComboBoxText == "") { System.Windows.MessageBox.Show("The object to edit is not selected."); return; }
+
+            EditSMTPWindow childWindow = new EditSMTPWindow();
+            childWindow.Owner = this;
+            childWindow.InitializeContent(cbSmtpSelect.ComboBoxText, (int)cbSmtpSelect.SelectedValue);
+            VariableClass.Addreses.Remove(cbSmtpSelect.ComboBoxText);
+
+            childWindow.ShowDialog();
+
+            VariableClass.Addreses.Add(childWindow.Smtp, childWindow.Port);
+            cbSmtpSelect.UpdateComboBox();
+        }
+
+        private void btnAddAddress_Click(object sender, RoutedEventArgs e)
+        {
+            AddAddressWindow childWindow = new AddAddressWindow();
+            childWindow.Owner = this;
+            childWindow.ShowDialog();
+
+            db.MyEmails.Add(childWindow.result);
+            dgEmails.UpdateLayout();
+        }
+
+        private void btnEditAddress_Сlick(object sender, RoutedEventArgs e)
+        {
+            AddAddressWindow childWindow = new AddAddressWindow();
+            childWindow.Owner = this;
+            childWindow.ShowDialog();
+
+            //db.MyEmails.Add(childWindow.result);
+        }
+
+        private void btnDeleteAddress_Click(object sender, RoutedEventArgs e)
+        {
+            db.MyEmails.Remove((Email)dgEmails.SelectedItem);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace WpfMailSender.AdditionalClasses
         private static Dictionary<string, string> dicSenders = new Dictionary<string, string>()
         {
             { "kobernicyri@mail.ru",CodePassword.getCodPassword("studentyura2014") },
+            { "sokol777@mail.ru",CodePassword.getCodPassword("squerty") },
             { "sok74@yandex.ru",CodePassword.getCodPassword(";liq34tjk") }
         };
 
@@ -26,7 +27,21 @@ namespace WpfMailSender.AdditionalClasses
         private static Dictionary<string, int> dicAddresses = new Dictionary<string, int>()
         {
             { "smtp.mail.ru", 25 },
+            { "smtp.yandex.ru", 25 },
             { "smtp.gmail.com",465 }
+        };
+
+        public static List<int> Ports
+        {
+            get { return listPorts; }
+        }
+        private static List<int> listPorts = new List<int>()
+        {
+            { 25 },
+            { 465 },
+            { 81 },
+            { 443 }
+
         };
 
     }

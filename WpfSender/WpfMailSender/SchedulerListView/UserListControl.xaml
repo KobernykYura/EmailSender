@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="WpfMailSender.SchedulerListView.UserListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfMailSender.SchedulerListView"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="25" d:DesignWidth="162">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Button Background="Transparent" BorderBrush="Transparent" x:Name="btnEditSender" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Редактировать" Click="btnEditSender_Click">
+                <Image Source="../img/add.png"/>
+            </Button>
+            <xctk:DateTimePicker Format="Custom" FormatString="HH:mm" x:Name="tbTimePicker" Width="105" HorizontalAlignment="Left" Height="25" Text="TextBox" VerticalAlignment="Top" ValueChanged="tbTimePicker_ValueChanged" />
+            <Button Background="Transparent" BorderBrush="Transparent" x:Name="btnDeleteSender" HorizontalAlignment="Right" VerticalAlignment="Center" ToolTip="Удалить" Click="btnDeleteSender_Click">
+                <Image Width="20" Source="../img/delete1.ico" HorizontalAlignment="Right"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

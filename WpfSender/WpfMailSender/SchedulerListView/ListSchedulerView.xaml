@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="WpfMailSender.SchedulerListView.ListSchedulerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfMailSender.SchedulerListView"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="400" Height="300" MinWidth="220" MinHeight="300">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <ListView x:Name="lvListField" Height="240">
+                
+            </ListView>
+            <Grid>
+                <Button x:Name="btnAddDate" Width="40" Height="30" ToolTip="Add this item" Click="btnAddDate_Click" Margin="0" HorizontalAlignment="Left">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../img/add.png" Width="20" Height="20" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <xctk:DateTimePicker x:Name="tpThisDate" Height="30" Margin="40,0"/>
+                <Button x:Name="btnDeleteDate" Width="40" Height="30" ToolTip="Delete this item" Click="btnDeleteDate_Click" Margin="0" HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../img/delete1.ico" Width="20" Height="20"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+            <Button x:Name="btnEditMail" Content="Edit mail" Height="30" Click="btnEditMail_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

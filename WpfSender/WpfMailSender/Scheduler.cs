@@ -1,9 +1,10 @@
-﻿using EmailSenderServiceDLL;
+﻿using Common;
+using EmailSenderServiceDLL;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Threading;
-using WPFData;
 
 namespace WpfMailSender
 {
@@ -16,7 +17,18 @@ namespace WpfMailSender
         DispatcherTimer timer = new DispatcherTimer(); // таймер 
         EmailSendService emailSender; // экземпляр класса отвечающего за отправку писем
         DateTime dtSend; // дата и время отправки
-        IQueryable<Emails> emails; // коллекция email'ов адресатов
+        IQueryable<Email> emails; // коллекция email'ов адресатов
+        Dictionary<DateTime, string> dicDates = new Dictionary<DateTime, string>();
+        public Dictionary<DateTime, string> DatesEmailTexts
+        {
+            get { return dicDates; }
+            set
+            {
+                dicDates = value;
+                dicDates = dicDates.OrderBy(pair => pair.Key).ToDictionary(pair => pair.Key, pair => pair.Value);
+            }
+        }
+
 
         /// <summary>
         /// Методе который превращаем строку из текстбокса tbTimePicker в TimeSpan
@@ -41,7 +53,7 @@ namespace WpfMailSender
         /// <param name="dtSend"></param>
         /// <param name="emailSender"></param>
         /// <param name="emails"></param>
-        public void SendEmails(DateTime dtSend, EmailSendService emailSender, IQueryable<Emails> emails)
+        public void SendEmails(DateTime dtSend, EmailSendService emailSender, IQueryable<Email> emails)
         {
             this.emailSender = emailSender; // Экземпляр класса отвечающего за отправку писем присваиваем 
             this.dtSend = dtSend;
@@ -53,6 +65,19 @@ namespace WpfMailSender
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            //if (dicDates.Count == 0)
+            //{
+            //    timer.Stop();
+            //    MessageBox.Show("Письма отправлены.");
+            //}
+            //else if (dicDates.Keys.First<DateTime>().ToShortTimeString() == DateTime.Now.ToShortTimeString())
+            //{
+            //    emailSender.Body = dicDates[dicDates.Keys.First<DateTime>()];
+            //    emailSender.Subject = $"Рассылка от {dicDates.Keys.First<DateTime>().ToShortTimeString()} ";
+            //    emailSender.SendMails(emails);
+            //    dicDates.Remove(dicDates.Keys.First<DateTime>());
+            //}
+
             if (dtSend.ToShortTimeString() == DateTime.Now.ToShortTimeString())
             {
                 emailSender.SendMails(emails);

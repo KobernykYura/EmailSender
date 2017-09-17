@@ -1,0 +1,15 @@
+﻿<Window x:Class="WpfMailSender.AddDeleteEditWindows.AddSMTPWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMailSender.AddDeleteEditWindows"
+        mc:Ignorable="d"
+        Title="Add password to new element" Height="250" Width="400" Icon="../img/Mail.ico">
+    <Grid>
+        <Button x:Name="btnOk" Content="OK" Margin="159,137,0,0" Click="btnOk_Click" Width="75" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ComboBox x:Name="smtpInput" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Text="" Height="22" IsEditable="True"/>
+        <Label Content="Port of SMTP-server" Margin="121,65,121,128" Width="150" Height="26"/>
+
+    </Grid>
+</Window>

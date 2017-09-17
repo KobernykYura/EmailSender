@@ -1,0 +1,114 @@
+10 сентября 2017 г.
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 52
+
+10 сентября 2017 г.
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 52
+
+10 сентября 2017 г.
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: Administrative prohibition -- authorization required.  Users in your domain are not allowed to send email without authorization.  See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+   в System.Net.Mail.DataCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   в System.Net.Mail.DataCommand.Send(SmtpConnection conn)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(String mail, String smtp, Int32 port) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 52
+
+12 сентября 2017 г.
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: 5.5.4 Error: send AUTH command first.
+   в System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   в System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(Object objEmail) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 59
+
+12 сентября 2017 г.
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: 5.5.4 Error: send AUTH command first.
+   в System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   в System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(Object objEmail) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 59
+
+12 сентября 2017 г.
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: 5.5.4 Error: send AUTH command first.
+   в System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   в System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(Object objEmail) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 59
+
+12 сентября 2017 г.22:31:03
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: 5.5.4 Error: send AUTH command first.
+   в System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   в System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(Object objEmail) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 59
+
+12 сентября 2017 г.22:31:03
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: 5.5.4 Error: send AUTH command first.
+   в System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   в System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(Object objEmail) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 59
+
+12 сентября 2017 г.22:31:04
+System.Net.Mail.SmtpException: Неправильная последовательность команд. Отклик сервера: 5.5.4 Error: send AUTH command first.
+   в System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   в System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   в System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(Object objEmail) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 59
+
+12 сентября 2017 г.23:00:25
+System.Net.Mail.SmtpException: Сбой при отправке сообщения электронной почты. ---> System.Net.WebException: Невозможно разрешить удаленное имя: 'smtp.google.com'
+   в System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   в System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   в System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   в System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   в System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   в System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   в System.Net.Mail.SmtpClient.GetConnection()
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(Object objEmail) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 59
+
+12 сентября 2017 г.23:00:26
+System.Net.Mail.SmtpException: Сбой при отправке сообщения электронной почты. ---> System.Net.WebException: Невозможно разрешить удаленное имя: 'smtp.google.com'
+   в System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   в System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   в System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   в System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   в System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   в System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   в System.Net.Mail.SmtpClient.GetConnection()
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(Object objEmail) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 59
+
+12 сентября 2017 г.23:00:26
+System.Net.Mail.SmtpException: Сбой при отправке сообщения электронной почты. ---> System.Net.WebException: Невозможно разрешить удаленное имя: 'smtp.google.com'
+   в System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   в System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   в System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   в System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   в System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   в System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   в System.Net.Mail.SmtpClient.GetConnection()
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Net.Mail.SmtpClient.Send(MailMessage message)
+   в EmailSenderServiceDLL.EmailSendService.SendMail(Object objEmail) в B:\GitHub_projects\EmailSender\WpfSender\EmailSenderServiceDLL\EmailSendService.cs:строка 59
+
